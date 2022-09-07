@@ -25,10 +25,15 @@
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
-                <form action="#" class="W-25">
+                <form action="{{route('admin.category.store')}}" class="W-25" method="POST">
+                    @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Type category name">
+                        <input type="text" class="form-control" name="title" placeholder="Type category name">
+                        @error('title')
+                        <div class="text-danger">{{$message}}</div>
+                        @enderror
                     </div>
+
                     <input type="submit" value="Create" class="btn btn-block btn-info col-2">
                 </form>
                 <!-- /.row -->

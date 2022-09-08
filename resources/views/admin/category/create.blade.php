@@ -25,7 +25,7 @@
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
-                <form action="{{route('admin.category.store')}}" class="W-25" method="POST">
+                <form action="{{ route('admin.category.store') }}" class="W-25" method="POST">
                     @csrf
                     <div class="form-group">
                         <input type="text" class="form-control" name="title" placeholder="Type category name">

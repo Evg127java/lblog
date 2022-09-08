@@ -1532,7 +1532,7 @@ function getAlpha(string) {
 // generators
 function hexString(rgba, a) {
    var a = (a !== undefined && rgba.length === 3) ? a : rgba[3];
-   return "#" + hexDouble(rgba[0]) 
+   return "#" + hexDouble(rgba[0])
               + hexDouble(rgba[1])
               + hexDouble(rgba[2])
               + (
@@ -4834,7 +4834,7 @@ function computeFitCategoryTraits(index, ruler, options) {
 
 /**
  * Computes an "optimal" category that globally arranges bars side by side (no gap when
- * percentage options are 1), based on the previous and following categories. This mode
+ * percentage options are 1), based on the previous and following category. This mode
  * generates bars with different widths when data are not evenly spaced.
  * @private
  */

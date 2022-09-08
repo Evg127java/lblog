@@ -27,7 +27,10 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-1 pb-2">
-                        <a href="{{route('admin.category.create')}}" class="btn btn-block btn-info">Create new</a>
+                        <a href="{{route('admin.category.edit', $category->id)}}" class="btn btn-block btn-info">Edit</a>
+                    </div>
+                    <div class="col-1 pb-2">
+                        <a href="#" class="btn btn-block btn-danger">Delete</a>
                     </div>
 
                 </div>

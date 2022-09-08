@@ -33,8 +33,9 @@
                         <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
-
-                    <input type="submit" value="Create" class="btn btn-block btn-info col-2">
+                    <div class="pb-2">
+                        <input type="submit" value="Create" class="btn btn-block btn-info col-1">
+                    </div>
                 </form>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->

@@ -25,16 +25,19 @@
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
-                <form action="#" class="W-25" method="POST">
+                <form action="{{route('admin.category.update', $category->id)}}" class="W-25" method="POST">
                     @csrf
+                    @method('PATCH')
                     <div class="form-group">
                         <input type="text" class="form-control" name="title" value="{{$category->title}}" placeholder="Type category name">
                         @error('title')
                         <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
+                    <div>
+                        <input type="submit" value="Update" class="btn btn-block btn-info col-1">
+                    </div>
 
-                    <input type="submit" value="Update" class="btn btn-block btn-info col-2">
                 </form>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->

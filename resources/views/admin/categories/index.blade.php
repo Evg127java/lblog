@@ -42,7 +42,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Title</th>
-                                        <th>Action</th>
+                                        <th>Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -50,7 +50,10 @@
                                     <tr>
                                         <td>{{$category->id}}</td>
                                         <td>{{$category->title}}</td>
-                                        <td><a href="{{route('admin.category.show', $category->id)}}" class="far fa-eye"></a></td>
+                                        <td>
+                                            <a href="{{route('admin.category.show', $category->id)}}" class="far fa-eye"></a>
+                                            <a href="{{route('admin.category.edit', $category->id)}}" class="far fa-edit pl-2 pr-2"></a>
+                                        </td>
                                     </tr>
                                     @endforeach
 

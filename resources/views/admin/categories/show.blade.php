@@ -27,11 +27,13 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-1 pb-2">
-                        <a href="{{route('admin.category.edit', $category->id)}}" class="btn btn-block btn-info">Edit</a>
+                        <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-block btn-info">Edit</a>
                     </div>
-                    <div class="col-1 pb-2">
-                        <a href="#" class="btn btn-block btn-danger">Delete</a>
-                    </div>
+                    <form action="{{ route('admin.category.delete', $category->id) }}" method="POST" class="col-1 pb-2">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-block btn-danger">Delete</button>
+                    </form>
 
                 </div>
                 <div class="row">
@@ -43,12 +45,7 @@
                                 <table class="table table-hover text-nowrap">
                                     <tbody>
                                     <tr>
-                                        <td>ID</td>
-                                        <td>{{$category->id}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Title</td>
-                                        <td>{{$category->title}}</td>
+                                        <td>Title: {{ $category->title }}</td>
                                     </tr>
 
                                     </tbody>

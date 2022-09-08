@@ -40,19 +40,28 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Title</th>
-                                        <th>Actions</th>
+                                        <th colspan=3 class="text-center">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($categories as $category)
                                     <tr>
-                                        <td>{{$category->id}}</td>
                                         <td>{{$category->title}}</td>
-                                        <td>
-                                            <a href="{{route('admin.category.show', $category->id)}}" class="far fa-eye"></a>
-                                            <a href="{{route('admin.category.edit', $category->id)}}" class="far fa-edit pl-2 pr-2"></a>
+                                        <td class="text-center">
+                                            <a href="{{ route('admin.category.show', $category->id) }}" class="far fa-eye"></a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="{{ route('admin.category.edit', $category->id) }}" class="far fa-edit text-cyan"></a>
+                                        </td>
+                                        <td class="text-center col-2">
+                                            <form action="{{ route('admin.category.delete', $category->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="border-0 bg-transparent">
+                                                    <i class="far fa-trash-alt text-danger"></i>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach

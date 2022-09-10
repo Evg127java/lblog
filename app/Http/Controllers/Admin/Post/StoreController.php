@@ -13,12 +13,16 @@ class StoreController extends Controller
     {
         try{
             $data = $request->validated();
-            $tags = $data['tags'];
-            unset($data['tags']);
             $data['preview'] = isset($data['preview']) ? Storage::put('/images', $data['preview']) : null;
             $data['image'] = isset($data['image']) ? Storage::put('/images', $data['image']) : null;
+            if (array_key_exists('tags', $data)) {
+                $tags = $data['tags'];
+                unset($data['tags']);
+            }
             $post = Post::create($data);
-            $post->tags()->attach($tags);
+            if (isset($tags)) {
+                $post->tags()->attach($tags);
+            }
         } catch (\Exception $e) {
             abort(404);
         }

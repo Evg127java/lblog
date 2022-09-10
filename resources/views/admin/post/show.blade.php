@@ -47,9 +47,6 @@
                                     <tr>
                                         <td class="bg-gray-light">Title: {{ $post->title }}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="bg-gray-light">Content: {{ $post->content }}</td>
-                                    </tr>
 
                                     </tbody>
                                 </table>

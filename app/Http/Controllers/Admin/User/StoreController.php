@@ -21,6 +21,7 @@ class StoreController extends Controller
     {
         $data = $request->validated();
         $data['password'] = Hash::make($data['password']);
+        //dd($data);
         User::create($data);
         return redirect()->route('admin.user.index');
     }

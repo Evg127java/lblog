@@ -31,8 +31,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', Rule::unique('users')->ignore($this->route()->user)],
-            'email' => ['required', 'string', Rule::unique('users')->ignore($this->route()->user)],
+            'name' => ['required', 'string', Rule::unique('users')->ignore($this->user)],
+            'email' => ['required', 'string', Rule::unique('users')->ignore($this->user)],
+            'role' => 'required|integer',
         ];
     }
 }

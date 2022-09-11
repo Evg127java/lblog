@@ -4,6 +4,9 @@ namespace App\Http\Requests\Admin\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Processes the input data for correctness to the post store
+ */
 class StoreRequest extends FormRequest
 {
     /**

@@ -4,6 +4,9 @@ namespace App\Http\Requests\Admin\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Processes the input data for correctness to the category store
+ */
 class StoreRequest extends FormRequest
 {
     /**

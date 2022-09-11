@@ -4,6 +4,9 @@ namespace App\Http\Requests\Admin\Tag;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Processes the input data for correctness to the tag update
+ */
 class UpdateRequest extends FormRequest
 {
     /**

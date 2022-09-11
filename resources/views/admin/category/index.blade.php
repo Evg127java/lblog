@@ -46,24 +46,27 @@
                                     </thead>
                                     <tbody>
                                     @foreach($categories as $category)
-                                    <tr>
-                                        <td>{{$category->title}}</td>
-                                        <td class="text-center">
-                                            <a href="{{ route('admin.category.show', $category->id) }}" class="far fa-eye"></a>
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="{{ route('admin.category.edit', $category->id) }}" class="far fa-edit text-cyan"></a>
-                                        </td>
-                                        <td class="text-center col-2">
-                                            <form action="{{ route('admin.category.delete', $category->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="border-0 bg-transparent">
-                                                    <i class="far fa-trash-alt text-danger"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{$category->title}}</td>
+                                            <td class="text-center">
+                                                <a href="{{ route('admin.category.show', $category->id) }}"
+                                                   class="far fa-eye"></a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="{{ route('admin.category.edit', $category->id) }}"
+                                                   class="far fa-edit text-cyan"></a>
+                                            </td>
+                                            <td class="text-center col-2">
+                                                <form action="{{ route('admin.category.delete', $category->id) }}"
+                                                      method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="border-0 bg-transparent">
+                                                        <i class="far fa-trash-alt text-danger"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
                                     @endforeach
 
                                     </tbody>

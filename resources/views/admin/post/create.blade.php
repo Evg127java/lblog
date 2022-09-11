@@ -28,7 +28,8 @@
                 <form action="{{ route('admin.post.store') }}" class="W-25" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control" name="title" placeholder="Type post name" value="{{ old('title') }}">
+                        <input type="text" class="form-control" name="title" placeholder="Type post name"
+                               value="{{ old('title') }}">
                         @error('title')
                         <div class="text-danger">{{$message}}</div>
                         @enderror
@@ -70,7 +71,7 @@
                         <select class="form-control" name="category_id">
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}"
-                                {{ old('category_id') == $category->id ? 'selected' : '' }}
+                                    {{ old('category_id') == $category->id ? 'selected' : '' }}
                                 >{{ $category->title }}</option>
                             @endforeach
                         </select>
@@ -80,7 +81,8 @@
                     </div>
                     <div class="form-group">
                         <label>Choose tags</label>
-                        <select multiple="multiple" class="select2" data-placeholser="Choose tags" style="width: 100%;" name="tags[]">
+                        <select multiple="multiple" class="select2" data-placeholser="Choose tags" style="width: 100%;"
+                                name="tags[]">
                             @foreach($tags as $tag)
                                 <option value="{{ $tag->id }}"
                                     {{ is_array(old('tags')) && in_array($tag->id, old('tags'), false) ? ' selected' : '' }}

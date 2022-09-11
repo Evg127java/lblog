@@ -29,7 +29,8 @@
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <input type="text" class="form-control" name="title" value="{{$category->title}}" placeholder="Type category name">
+                        <input type="text" class="form-control" name="title" value="{{$category->title}}"
+                               placeholder="Type category name">
                         @error('title')
                         <div class="text-danger">{{$message}}</div>
                         @enderror

@@ -46,24 +46,27 @@
                                     </thead>
                                     <tbody>
                                     @foreach($posts as $post)
-                                    <tr>
-                                        <td>{{$post->title}}</td>
-                                        <td class="text-center">
-                                            <a href="{{ route('admin.post.show', $post->id) }}" class="far fa-eye"></a>
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="{{ route('admin.post.edit', $post->id) }}" class="far fa-edit text-cyan"></a>
-                                        </td>
-                                        <td class="text-center col-2">
-                                            <form action="{{ route('admin.post.delete', $post->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="border-0 bg-transparent">
-                                                    <i class="far fa-trash-alt text-danger"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{$post->title}}</td>
+                                            <td class="text-center">
+                                                <a href="{{ route('admin.post.show', $post->id) }}"
+                                                   class="far fa-eye"></a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="{{ route('admin.post.edit', $post->id) }}"
+                                                   class="far fa-edit text-cyan"></a>
+                                            </td>
+                                            <td class="text-center col-2">
+                                                <form action="{{ route('admin.post.delete', $post->id) }}"
+                                                      method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="border-0 bg-transparent">
+                                                        <i class="far fa-trash-alt text-danger"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
                                     @endforeach
 
                                     </tbody>

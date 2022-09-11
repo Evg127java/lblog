@@ -29,7 +29,8 @@
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <input type="text" class="form-control" name="title" value="{{ $tag->title }}" placeholder="Type tag name">
+                        <input type="text" class="form-control" name="title" value="{{ $tag->title }}"
+                               placeholder="Type tag name">
                         @error('title')
                         <div class="text-danger">{{$message}}</div>
                         @enderror

@@ -27,7 +27,8 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-1 pb-2">
-                        <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-block btn-info">Edit</a>
+                        <a href="{{ route('admin.category.edit', $category->id) }}"
+                           class="btn btn-block btn-info">Edit</a>
                     </div>
                     <form action="{{ route('admin.category.delete', $category->id) }}" method="POST" class="col-1 pb-2">
                         @csrf

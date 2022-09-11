@@ -46,24 +46,26 @@
                                     </thead>
                                     <tbody>
                                     @foreach($tags as $tag)
-                                    <tr>
-                                        <td>{{$tag->title}}</td>
-                                        <td class="text-center">
-                                            <a href="{{ route('admin.tag.show', $tag->id) }}" class="far fa-eye"></a>
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="{{ route('admin.tag.edit', $tag->id) }}" class="far fa-edit text-cyan"></a>
-                                        </td>
-                                        <td class="text-center col-2">
-                                            <form action="{{ route('admin.tag.delete', $tag->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="border-0 bg-transparent">
-                                                    <i class="far fa-trash-alt text-danger"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{$tag->title}}</td>
+                                            <td class="text-center">
+                                                <a href="{{ route('admin.tag.show', $tag->id) }}"
+                                                   class="far fa-eye"></a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="{{ route('admin.tag.edit', $tag->id) }}"
+                                                   class="far fa-edit text-cyan"></a>
+                                            </td>
+                                            <td class="text-center col-2">
+                                                <form action="{{ route('admin.tag.delete', $tag->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="border-0 bg-transparent">
+                                                        <i class="far fa-trash-alt text-danger"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
                                     @endforeach
 
                                     </tbody>

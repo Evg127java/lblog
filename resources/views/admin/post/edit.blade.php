@@ -25,11 +25,13 @@
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
-                <form action="{{ route('admin.post.update', $post->id) }}" class="W-25" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.post.update', $post->id) }}" class="W-25" method="POST"
+                      enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <input type="text" class="form-control" name="title" placeholder="Type post name" value="{{ $post->title }}">
+                        <input type="text" class="form-control" name="title" placeholder="Type post name"
+                               value="{{ $post->title }}">
                         @error('title')
                         <div class="text-danger">{{$message}}</div>
                         @enderror
@@ -44,9 +46,9 @@
                     @enderror
                     <label for="exampleInputFile">Add preview:</label>
                     @if(!is_null($post->preview))
-                    <div class="w-25">
-                        <img src="{{ Storage::url($post->preview) }}" alt="image_preview">
-                    </div>
+                        <div class="w-25">
+                            <img src="{{ Storage::url($post->preview) }}" alt="image_preview">
+                        </div>
                     @endif
                     <div class="input-group">
                         <div class="custom-file">
@@ -62,9 +64,9 @@
                     @enderror
                     <label for="exampleInputFile">Add main image:</label>
                     @if(!is_null($post->image))
-                    <div class="w-25">
-                        <img src="{{ Storage::url($post->image) }}" alt="image">
-                    </div>
+                        <div class="w-25">
+                            <img src="{{ Storage::url($post->image) }}" alt="image">
+                        </div>
                     @endif
                     <div class="input-group">
                         <div class="custom-file">
@@ -93,13 +95,14 @@
                     </div>
                     <div class="form-group">
                         <label>Choose tags</label>
-                        <select multiple="multiple" class="select2" data-placeholser="Choose tags" style="width: 100%;" name="tags[]">
+                        <select multiple="multiple" class="select2" data-placeholser="Choose tags" style="width: 100%;"
+                                name="tags[]">
                             @if(isset($post->tags))
-                            @foreach($tags as $tag)
-                                <option value="{{ $tag->id }}"
-                                    {{ is_array($post->tags->pluck('id')->toArray()) && $post->tags->pluck('id')->contains($tag->id) ? ' selected' : '' }}
-                                >{{ $tag->title }}</option>
-                            @endforeach
+                                @foreach($tags as $tag)
+                                    <option value="{{ $tag->id }}"
+                                        {{ is_array($post->tags->pluck('id')->toArray()) && $post->tags->pluck('id')->contains($tag->id) ? ' selected' : '' }}
+                                    >{{ $tag->title }}</option>
+                                @endforeach
                             @endif
                         </select>
                     </div>

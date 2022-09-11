@@ -4,16 +4,29 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Post model
+ */
 class Post extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
+    /**
+     * @var string
+     */
     protected $table = 'posts';
+    /**
+     * @var bool
+     */
     protected $guarded = false;
 
+    /**
+     * @return BelongsToMany
+     */
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');

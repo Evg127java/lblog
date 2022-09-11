@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class PostTag extends Model
 {
     use HasFactory;
+
+    /**
+     * @var string
+     */
     protected $table = 'post_tags';
+    /**
+     * @var bool
+     */
     protected $guarded = false;
 }

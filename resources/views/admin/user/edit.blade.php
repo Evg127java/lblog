@@ -40,7 +40,7 @@
                         <div class="text-danger">{{$message}}</div>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{ $user->name == auth()->user()->name ? 'd-none' : '' }}">
                         <label>Choose Role</label>
                         <select class="form-control" name="role">
                             @foreach($roles as $roleId => $roleTitle)

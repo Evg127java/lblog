@@ -7,6 +7,14 @@
             data-accordion="false">
 
             <li class="nav-item">
+                <a href="{{route('admin.main.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-home"></i>
+                    <p>
+                        Home
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{route('admin.post.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-feather"></i>
                     <p>

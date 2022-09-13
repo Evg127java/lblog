@@ -6,7 +6,6 @@ namespace App\Models;
 use App\Mail\User\Registration;
 use App\Notifications\SendVerifyWithQueue;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -63,4 +62,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->notify(new SendVerifyWithQueue());
     }
+
+    public function likedPosts()
+    {
+        return $this->belongsToMany(Post::class, 'post_user_likes', 'user_id', 'post_id');
+    }
+
 }

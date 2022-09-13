@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Personal\Comment;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 
 /**
- * Shows admin panel
+ * Shows a specified single liked post in the personal panel
  */
-class IndexController extends Controller
+class EditController extends Controller
 {
     /**
      * @return Application|Factory|View
      */
-    public function __invoke()
+    public function __invoke(Comment $comment)
     {
-        $comments = auth()->user()->comments;
-        return view('personal.comment.index', compact('comments'));
+        return view('personal.comment.edit', compact('comment'));
     }
 }

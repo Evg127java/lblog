@@ -30,6 +30,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'perso
     });
     Route::group(['namespace' => 'Comment', 'prefix' => 'comment'], function () {
         Route::get('/', 'IndexController')->name('personal.comment.index');
+        Route::delete('/{comment}', 'DeleteController')->name('personal.comment.delete');
+        Route::get('/{comment}', 'ShowController')->name('personal.comment.show');
+        Route::get('/{comment}/edit', 'EditController')->name('personal.comment.edit');
+        Route::patch('/{comment}', 'UpdateController')->name('personal.comment.update');
     });
 });
 

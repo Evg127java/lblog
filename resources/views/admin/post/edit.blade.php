@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <textarea id="summernote" name="content" placeholder="Type content">
-                            {{ $post->content }}
+                            {!! $post->content !!}
                         </textarea>
                     </div>
                     @error('content')

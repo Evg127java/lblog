@@ -38,22 +38,8 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ route('main.index') }}">Blog</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stories</a>
-                        <div class="dropdown-menu" aria-labelledby="blogDropdown">
-                            <a class="dropdown-item" href="#">Archive</a>
-                            <a class="dropdown-item" href="#">New</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                            <a class="dropdown-item" href="#">404</a>
-                            <a class="dropdown-item" href="#">Coming Soon</a>
-                        </div>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#">Categories</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">

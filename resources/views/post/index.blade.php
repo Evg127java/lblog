@@ -17,8 +17,48 @@
                     </div>
                 </div>
             </section>
+            <section class="post-content">
+                <div class="row">
+                    <div class="col-lg-9 mx-auto">
+
+                        @auth
+                        <form action="{{ route('post.like.store', $post->id) }}" method="post">
+                            @csrf
+                            <span>{{ $post->liked_users_count }}</span>
+                            <button class="bg-transparent border-0">
+                                    @if(auth()->user()->likedPosts->contains($post->id))
+                                        <i class="fas fa-thumbs-up"></i>
+                                    @else
+                                        <i class="far fa-thumbs-up"></i>
+                                    @endif
+                            </button>
+                            @if(!auth()->user()->role)
+                            <div class="d-inline">
+                                <a href="#">
+                                    <i class="fas fa-pencil-alt mr-2 text-primary"></i>
+                                </a>
+                            </div>
+                            <div class="d-inline">
+                                <a href="#">
+                                    <i class="fas fa-trash mr-2 text-danger"></i>
+                                </a>
+                            </div>
+                            @endif
+                        </form>
+                        @endauth
+                        @guest
+                            <div class="d-inline">
+                                <span>{{ $post->liked_users_count }}</span>
+                                <i class="far fa-thumbs-up mr-2"></i>
+                            </div>
+                        @endguest
+                    </div>
+                </div>
+            </section>
+
             <div class="row">
                 <div class="col-lg-9 mx-auto">
+                    @if($relatedPosts->count() > 0)
                     <section class="related-posts">
                         <h2 class="section-title mb-4" data-aos="fade-up">Related Posts</h2>
                         <div class="row">
@@ -31,22 +71,26 @@
                             @endforeach
                         </div>
                     </section>
-                    <section class="comment-list mb-5">
-                        <h2 class="section-title mb-2" data-aos="fade-up">Comments({{ $comments->count() }}):</h2>
-                        @foreach($comments as $comment)
-                        <div class="comment-text mb-2">
+                    @endif
+                        @if($comments->count() > 0)
+                            <section class="comment-list mb-5">
+                                <h2 class="section-title mb-2" data-aos="fade-up">Comments({{ $comments->count() }}
+                                    )</h2>
+                                @foreach($comments as $comment)
+                                    <div class="comment-text mb-2">
                             <span class="username">
                                 <div>
                                     {{ $comment->user->name }}
                                 </div>
                                 <span class="text-muted float-right">{{ $comment->carbonDate->diffForHumans() }}</span>
                             </span>
-                            <!-- /.username -->
-                            {{ $comment->content }}
-                        </div>
-                        @endforeach
-                    </section>
-                    @auth
+                                        <!-- /.username -->
+                                        {{ $comment->content }}
+                                    </div>
+                                @endforeach
+                            </section>
+                        @endif
+                        @auth
                     <section class="comment-section">
                         <h2 class="section-title mb-2" data-aos="fade-up">Leave a Comment</h2>
                         <form action="{{ route('post.comment.store', $post->id ) }}" method="post">

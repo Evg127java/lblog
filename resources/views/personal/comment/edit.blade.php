@@ -30,8 +30,7 @@
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <textarea cols="30" rows="10" class="form-control" name="content">
-                               {{ $comment->content }}
+                        <textarea cols="30" rows="10" class="form-control" name="content">{{ $comment->content }}
                         </textarea>
                         @error('content')
                         <div class="text-danger">{{$message}}</div>

@@ -3,10 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Mail\User\Registration;
 use App\Notifications\SendVerifyWithQueue;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -19,6 +20,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public const ROLE_ADMIN = 0;
     public const ROLE_GUEST = 1;
 
+    /**
+     * @return string[]
+     */
     public static function getRoles()
     {
         return [
@@ -58,16 +62,25 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return void
+     */
     public function sendEmailVerificationNotification()
     {
         $this->notify(new SendVerifyWithQueue());
     }
 
+    /**
+     * @return BelongsToMany
+     */
     public function likedPosts()
     {
         return $this->belongsToMany(Post::class, 'post_user_likes', 'user_id', 'post_id');
     }
 
+    /**
+     * @return HasMany
+     */
     public function comments()
     {
         return $this->hasMany(Comment::class);

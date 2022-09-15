@@ -41,17 +41,13 @@
                                     <thead>
                                     <tr>
                                         <th>Title</th>
-                                        <th colspan=3 class="text-center col-6">Actions</th>
+                                        <th colspan=2 class="text-center col-4">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($posts as $post)
                                         <tr>
                                             <td>{{$post->title}}</td>
-                                            <td class="text-center">
-                                                <a href="{{ route('admin.post.show', $post->id) }}"
-                                                   class="far fa-eye"></a>
-                                            </td>
                                             <td class="text-center">
                                                 <a href="{{ route('admin.post.edit', $post->id) }}"
                                                    class="far fa-edit text-cyan"></a>

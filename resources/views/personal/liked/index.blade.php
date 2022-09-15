@@ -35,17 +35,13 @@
                                     <thead>
                                     <tr>
                                         <th>Title</th>
-                                        <th colspan=2 class="text-center col-4">Actions</th>
+                                        <th colspan=2 class="text-center col-2">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($posts as $post)
                                         <tr>
                                             <td>{{$post->title}}</td>
-                                            <td class="text-center">
-                                                <a href="{{ route('personal.liked.show', $post->id) }}"
-                                                   class="far fa-eye"></a>
-                                            </td>
                                             <td class="text-center col-2">
                                                 <form action="{{ route('personal.liked.delete', $post->id) }}"
                                                       method="POST">

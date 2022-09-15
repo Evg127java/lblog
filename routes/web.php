@@ -20,6 +20,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
 });
 Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], function () {
     Route::get('/{post}', 'IndexController')->name('post.index');
+    Route::group(['namespace' => 'Comment', 'prefix' => '/{post}/comments'], function () {
+        Route::post('/', 'StoreController')->name('post.comment.store');
+    });
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
@@ -29,7 +32,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'perso
     Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {
         Route::get('/', 'IndexController')->name('personal.liked.index');
         Route::delete('/{post}', 'DeleteController')->name('personal.liked.delete');
-        Route::get('/{post}', 'ShowController')->name('personal.liked.show');
     });
     Route::group(['namespace' => 'Comment', 'prefix' => 'comment'], function () {
         Route::get('/', 'IndexController')->name('personal.comment.index');
@@ -66,7 +68,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::get('/', 'IndexController')->name('admin.post.index');
         Route::get('/create', 'CreateController')->name('admin.post.create');
         Route::post('/', 'StoreController')->name('admin.post.store');
-        Route::get('/{post}', 'ShowController')->name('admin.post.show');
         Route::get('/{post}/edit', 'EditController')->name('admin.post.edit');
         Route::patch('/{post}', 'UpdateController')->name('admin.post.update');
         Route::delete('/{post}', 'DeleteController')->name('admin.post.delete');

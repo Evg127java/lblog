@@ -42,6 +42,17 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
+                @if(auth()->check())
+                    @if(!auth()->user()->role)
+                        <li class="nav-item mr-2">
+                            <a href="{{ route('admin.main.index') }}"><input type="submit" value="Admin"
+                                                                             class="btn btn-block btn-info"></a>
+                        </li>
+                    @endif
+                @endif
+                <li class="nav-item mr-2">
+                    <a href="{{ route('main.index') }}"><input type="submit" value="Blog" class="btn btn-block btn-info"></a>
+                </li>
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="post">
                         @csrf

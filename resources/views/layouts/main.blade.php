@@ -21,8 +21,20 @@
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#edicaMainNav" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="edicaMainNav">
+            <div class="collapse navbar-collapse d-flex justify-content-between" id="edicaMainNav">
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                    @if(auth()->check())
+                        @if(!auth()->user()->role)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.main.index') }}">Admin</a>
+                            </li>
+                        @endauth
+                    @endif
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('personal.main.index') }}">Dashboard</a>
+                        </li>
+                    @endauth
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ route('main.index') }}">Blog</a>
                     </li>
@@ -44,13 +56,29 @@
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="flag-icon flag-icon-squared rounded-circle flag-icon-gb"></span> Eng</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Download</a>
-                    </li>
+                <ul class="navbar-nav">
+                    @guest
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                        @endif
+
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <div class="d-flex align-items-center mr-2">
+                            <span class="text-black-50">Hello,&nbsp;</span>
+                            {{ auth()->user()->name }}
+                        </div>
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <input type="submit" value="LogOut" class="btn btn-block btn-info">
+                        </form>
+                    @endguest
                 </ul>
             </div>
         </nav>

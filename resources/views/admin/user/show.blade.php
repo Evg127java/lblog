@@ -47,7 +47,7 @@
                                 <table class="table table-hover text-nowrap">
                                     <tbody>
                                     <tr>
-                                        <td>Title: {{ $user->title }}</td>
+                                        <td>Name: {{ $user->name }}</td>
                                     </tr>
 
                                     </tbody>

@@ -42,6 +42,12 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
+                <li class="nav-item mr-2">
+                    <a href="{{ route('personal.main.index') }}"><input type="submit" value="Dashboard" class="btn btn-block btn-info"></a>
+                </li>
+                <li class="nav-item mr-2">
+                    <a href="{{ route('main.index') }}"><input type="submit" value="Blog" class="btn btn-block btn-info"></a>
+                </li>
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="post">
                         @csrf

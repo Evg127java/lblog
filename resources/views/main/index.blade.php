@@ -55,7 +55,7 @@
                     <ul class="post-list">
                         @foreach($likedPosts as $likedPost)
                             <li class="post">
-                                <a href="#!" class="post-permalink media">
+                                <a href="{{ route('post.index', $likedPost->id) }}" class="post-permalink media">
                                     <img src="{{ Storage::url($likedPost->preview) }}" alt="blog post image preview">
                                     <div class="media-body">
                                         <h6 class="post-title">{{ $likedPost->title }}</h6>

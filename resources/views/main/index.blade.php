@@ -34,14 +34,14 @@
             <div class="col-md-8">
                 <section>
                     <div class="row blog-post-row">
-                        @foreach($randomPosts as $post)
+                        @foreach($randomPosts as $randomPost)
                             <div class="col-md-6 blog-post" data-aos="fade-up">
                                 <div class="blog-post-thumbnail-wrapper">
-                                    <img src="{{ Storage::url($post->preview) }}" alt="blog post image preview">
+                                    <img src="{{ Storage::url($randomPost->preview) }}" alt="blog post image preview">
                                 </div>
-                                <p class="blog-post-category">{{ $post->category->title }}</p>
-                                <a href="#!" class="blog-post-permalink">
-                                    <h6 class="blog-post-title">{{ $post->title }}</h6>
+                                <p class="blog-post-category">{{ $randomPost->category->title }}</p>
+                                <a href="{{ route('post.index', $randomPost->id) }}" class="blog-post-permalink">
+                                    <h6 class="blog-post-title">{{ $randomPost->title }}</h6>
                                 </a>
                             </div>
                         @endforeach
